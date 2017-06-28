@@ -17,20 +17,20 @@ def __count_n_update_won_lost(game,metrics):
 
 # so, 1,2 is same as 2,1 in a game
 def __count_n_update_won_lost_with_partners(game,metrics):
-    key = "{0}_{1}_{2}".format(game[0],game[1],"won")
-    if key in metrics:
-        metrics[key] += 1
+    key_won = "{0}_{1}_{2}".format(game[0],game[1],"won")
+    if key_won in metrics:
+        metrics[key_won] += 1
     else:
-        key = "{0}_{1}_{2}".format(game[1],game[0],"won")
-        if key in metrics:
-            metrics[key] += 1
-    key = "{0}_{1}_{2}".format(game[2],game[3],"lost")
-    if key in metrics:
-        metrics[key] += 1
+        key_won_rev = "{0}_{1}_{2}".format(game[1],game[0],"won")
+        if key_won_rev in metrics:
+            metrics[key_won_rev] += 1
+    key_lost = "{0}_{1}_{2}".format(game[2],game[3],"lost")
+    if key_lost in metrics:
+        metrics[key_lost] += 1
     else:
-        key = "{0}_{1}_{2}".format(game[3],game[2],"lost")
-        if key in metrics:
-            metrics[key] += 1
+        key_lost_rev = "{0}_{1}_{2}".format(game[3],game[2],"lost")
+        if key_lost_rev in metrics:
+            metrics[key_lost_rev] += 1
 
 def __calculate_rank_n_update(metrics):
     players_rank = {}
