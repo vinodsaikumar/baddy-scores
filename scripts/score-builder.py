@@ -4,11 +4,9 @@ import itertools
 import json
 import csv
 
-player_ids=[1,2,3,4]
+player_ids=[1,2,3,4,5,6]
 metrics_json_file_path="../datasource/metrics.json"
 games_file_path="../datasource/games.csv"
-players_generic_file="../html5/generic.html"
-players_file_path="../html5/generic.html"
 
 #if game is 1,2,3,4 then 1,2 has beaten 3, 4
 def __count_n_update_won_lost(game,metrics):
@@ -41,7 +39,6 @@ def __calculate_rank_n_update(metrics):
     player_ids_sorted = sorted(players_rank, key=players_rank.get, reverse=True)
     for rank, id in enumerate(player_ids_sorted):
         metrics["{0}_{1}".format(id,"rank")] = rank + 1
-
 
 def __main():
      with open(metrics_json_file_path, 'r') as metrics_template:
