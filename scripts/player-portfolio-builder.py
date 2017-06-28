@@ -15,9 +15,11 @@ def __create_portfolio(metrics,player_id,soup):
        player_rank = metrics["{0}_{1}".format(player_id,"rank")]
        player_won = metrics["{0}_{1}".format(player_id,"won")]
        player_lost = metrics["{0}_{1}".format(player_id,"lost")]
+       player_name = metrics["{0}_{1}".format(player_id,"name")]
        soup.find(id="player_rank").insert(1,"{0}".format(player_rank))
        soup.find(id="player_won").insert(1,"{0}".format(player_won))
        soup.find(id="player_lost").insert(1,"{0}".format(player_lost))
+       soup.find(id="player_name").insert(1,"{0}".format(player_name))
        for partner_id in player_ids:
             partner_name = metrics["{0}_{1}".format(partner_id,"name")]
             key_partner_won = "{0}_{1}_{2}".format(player_id,partner_id,"won")
