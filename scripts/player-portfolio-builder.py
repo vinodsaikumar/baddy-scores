@@ -21,7 +21,7 @@ def __create_portfolio(metrics,player_id,soup):
        for partner_id in player_ids:
             partner_name = metrics["{0}_{1}".format(partner_id,"name")]
             key_partner_won = "{0}_{1}_{2}".format(player_id,partner_id,"won")
-            key_partner_lost = "{0}_{1}_{2}".format(player_id,partner_id,"won")
+            key_partner_lost = "{0}_{1}_{2}".format(player_id,partner_id,"lost")
             if key_partner_won in metrics and key_partner_lost in metrics:
                 partner_won = metrics[key_partner_won]
                 partner_lost = metrics[key_partner_lost]
