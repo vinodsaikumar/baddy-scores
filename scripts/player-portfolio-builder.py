@@ -8,8 +8,25 @@ import copy
 player_ids=[1,2,3,4,5,6]
 metrics_json_file_path="../datasource/metrics.json"
 players_generic_file="../docs/generic.html"
+players_rank_file="../docs/rank.html"
 players_file_path="../docs"
 
+def __create_leader_board(metrics,rank_soup):
+    leader_board={}
+    for id in player_ids:
+        leader_board[id]=metrics["{0}_{1}".format(id,"rank")]
+    player_ids_sorted = sorted(leader_board, key=leader_board.get)
+    table_body = rank_soup.new_tag("tbody", id="players_rank")
+    for id in player_ids_sorted:
+        player_name = metrics["{0}_{1}".format(id,"name")]
+        player_rank = metrics["{0}_{1}".format(id,"rank")]
+        row_tag = "<tr><td>{0}</td><td>{1}</td></tr>".format(player_name,player_rank)
+        row_soup = BeautifulSoup(row_tag,"html.parser")
+        table_body.append(row_soup)
+    original_table_body = rank_soup.find(id="players_rank")
+    original_table_body.replace_with(table_body)
+    with open(players_rank_file, "w") as file:
+               file.write(str(rank_soup.prettify()))
 
 def __create_portfolio(metrics,player_id,soup):
        player_rank = metrics["{0}_{1}".format(player_id,"rank")]
@@ -49,5 +66,7 @@ def __main():
      for id in player_ids:
         soup_copy = copy.copy(soup)
         __create_portfolio(metrics,id,soup_copy)
-
+     with open(players_rank_file, 'r') as rank_file:
+             rank_soup = BeautifulSoup(rank_file, 'html.parser')
+     __create_leader_board(metrics,rank_soup)
 __main()
