@@ -22,9 +22,17 @@ def __create_portfolio(metrics,player_id,soup):
             partner_name = metrics["{0}_{1}".format(partner_id,"name")]
             key_partner_won = "{0}_{1}_{2}".format(player_id,partner_id,"won")
             key_partner_lost = "{0}_{1}_{2}".format(player_id,partner_id,"lost")
+            key_partner_won_rev = "{0}_{1}_{2}".format(partner_id,player_id,"won")
+            key_partner_lost_rev = "{0}_{1}_{2}".format(partner_id,player_id,"lost")
             if key_partner_won in metrics and key_partner_lost in metrics:
                 partner_won = metrics[key_partner_won]
                 partner_lost = metrics[key_partner_lost]
+                row_tag = "<tr><td>{0}</td><td>{1}</td><td>{2}</td></tr>".format(partner_name,partner_won,partner_lost)
+                row_soup = BeautifulSoup(row_tag,"html.parser")
+                soup.find(id="player_partner_metrics").insert(1,row_soup)
+            if key_partner_won_rev in metrics and key_partner_lost_rev in metrics:
+                partner_won = metrics[key_partner_won_rev]
+                partner_lost = metrics[key_partner_lost_rev]
                 row_tag = "<tr><td>{0}</td><td>{1}</td><td>{2}</td></tr>".format(partner_name,partner_won,partner_lost)
                 row_soup = BeautifulSoup(row_tag,"html.parser")
                 soup.find(id="player_partner_metrics").insert(1,row_soup)
