@@ -60,10 +60,12 @@
                     <li><a href="#raw" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
                 </ul>
                 <div id="formatCSV" style="display: none;">
-                    <div id="csvData"></div>
+                    <textarea id="csvData"></textarea>
+                    <hr/>
                     <div>
                         <ul class="actions">
                             <li><a href="#clear" class="button small">Clear</a></li>
+                            <li><a href="#copy" class="button small clipboard" data-clipboard-target="#csvData">Copy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -130,5 +132,6 @@
 <script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="assets/js/main.js"></script>
 <script src="assets/js/scoresheet.js"></script>
+<script src="assets/js/clipboard.min.js"></script>
 </body>
 </html>

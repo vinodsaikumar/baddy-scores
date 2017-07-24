@@ -1,6 +1,8 @@
 (function($) {
 
 	$(function() {
+	        new Clipboard('.clipboard');
+
 	        var _player_id_lookup = {
                 'B':'1',
                 'D': '2',
