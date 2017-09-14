@@ -4,7 +4,7 @@ import itertools
 import json
 import csv
 
-player_ids = [1, 2, 3, 4, 5, 6]
+player_ids = [1, 2, 3, 4, 5, 6, 7]
 metrics_json_file_path = "../datasource/metrics.json"
 games_file_path = "../datasource/games.csv"
 

@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import json
 import copy
 
-player_ids = [1, 2, 3, 4, 5, 6]
+player_ids = [1, 2, 3, 4, 5, 6, 7]
 metrics_json_file_path = "../datasource/metrics.json"
 players_generic_file = "../docs/generic.html"
 players_rank_file = "../docs/rank.html"

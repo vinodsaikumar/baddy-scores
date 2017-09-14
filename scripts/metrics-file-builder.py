@@ -3,14 +3,15 @@
 import itertools
 import json
 
-player_ids = [1, 2, 3, 4, 5, 6]
+player_ids = [1, 2, 3, 4, 5, 6, 7]
 player_names = {
     "1_name": "Basavaraj",
     "2_name": "Deepthi",
     "3_name": "Goutham",
     "4_name": "Sharan",
     "5_name": "Vinayak",
-    "6_name": "Vinod"
+    "6_name": "Vinod",
+    "7_name": "Paneendra"
 }
 player_metrics = ["name", "won", "lost", "rank"]
 player_with_partner_metrics = ["won", "lost"]
